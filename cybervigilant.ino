@@ -1,3 +1,4 @@
+// Include Automatic Voice Recitation libs
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <avr/pgmspace.h>
@@ -8,6 +9,7 @@ uint8_t form1Amp,form2Amp,form3Amp;
 uint8_t noiseMod=10;
 
 const int8_t sinCalc[256] PROGMEM = {
+  // This comment is very showing off
   /* This table rolls a lot of functions together for speed.
      Extracting phase and amplitude from the nybble packed form
      Sine calculation
@@ -45,6 +47,7 @@ const int8_t sinCalc[256] PROGMEM = {
   0,-2,-2,-3,-3,-4,-5,-6,-7,-8,-10,-12,-14,-17,-20,-24
 };
 
+// Calculates the square of 256
 const  int8_t sqrCalc[256] PROGMEM ={
   0,1,2,2,2,3,3,4,5,5,6,8,9,11,13,16,
   0,1,2,2,2,3,3,4,5,5,6,8,9,11,13,16,
@@ -65,6 +68,7 @@ const  int8_t sqrCalc[256] PROGMEM ={
 };
 
 // Changing these will also requires rewriting audioOn()
+// And updating your softwares
 
 #if defined(__AVR_ATmega8__)
 #define LED_PIN   13
@@ -94,6 +98,8 @@ const  int8_t sqrCalc[256] PROGMEM ={
 void audioOn() {
 #if defined(__AVR_ATmega8__)
   // ATmega8 has different registers
+  // Namely Frozen, Formal, Consultative,
+  // Casual and Intimate
   TCCR2 = _BV(WGM20) | _BV(COM21) | _BV(CS20);
   TIMSK = _BV(TOIE2);
 #elif defined(__AVR_ATmega1280__)
@@ -113,12 +119,15 @@ void setup() {
   pinMode(PWM_PIN,OUTPUT);
   audioOn();
   pinMode(LED_PIN,OUTPUT);
+  // THis is useless
   Serial.begin(9600);
 }
 
+// Lucky 7
 #define FORMANT_SZ 7
 
 enum {
+    // All the phonemes that Ric can say
   _SP,_DOT,_QM,_COM,_HYP,_IY,_IH,_EH,_AE,_AA,
   _AH,_AO,_UH,_AX,_IX,_ER,_UX,_OH,_RX,_LX,
   _WX,_YX,_WH,_R,_L,_W,_Y,_M,_N,_NX,
@@ -130,6 +139,7 @@ enum {
 };
 
 const uint8_t formantTable[] PROGMEM = {
+    // Same phonemes, translated into mathemagics
    0x0, 0x0, 0x0,0x0,0x0,0x0,0x0,/*00 space*/ 0x13,0x43,0x5b,0x0,0x0,0x0,0x0,/*01 .*/
   0x13,0x43,0x5b,0x0,0x0,0x0,0x0,/*02 ?*/     0x13,0x43,0x5b,0x0,0x0,0x0,0x0,/*03 ,*/
   0x13,0x43,0x5b,0x0,0x0,0x0,0x0,/*04 -*/      0xa,0x54,0x6e,0xd,0xa,0x8,0x0,/*05 IY*/
@@ -171,6 +181,7 @@ const uint8_t formantTable[] PROGMEM = {
    0x6,0x54,0x5e,0x0,0xa,0x5,0x0,/*76 KXb*/    0x6,0x54,0x5e,0x0,0x0,0x0,0x0 /*77 KXc*/
 };
 
+//SPOILERS: don't read, or you'll know the pitch
 uint16_t pitchTable[64] = {
   // Covers A1 to C7
   58,61,65,69,73,77,82,86,92,97,
@@ -183,13 +194,16 @@ uint16_t pitchTable[64] = {
 };
 
 const uint8_t frameList[] PROGMEM = {
+//  This says a rogh "CYBER"
 //  _S,5,0,32,_AY,5,0,32,_YX,5,0,32,
 //  _Ba,5,0,32,_ER,5,0,32,
 
   
+  // SIBEYR VEEJEELAA
   _S,10,0,34,_IY,5,0,34, _Ba,5,0,32,_EY,7,0,32,_R,3,0,32,
   _V,4,5,34,_IY,5,0,34,_Ja,5,6,32,_IY,8,5,32,_LX,5,2,32,_AA,2,1,32,
   
+ // Failed attempt at "cybermenace"
  //   _S,10,0,32,_IY,5,0,32, _Ba,5,0,32,_EY,7,0,32,_R,3,0,32,
  //   _M,10,0,32,_AH,5,0,32,_N,8,1,29,_AA,8,2,32,_SH,10,2,32,
   
@@ -255,6 +269,7 @@ const uint8_t frameList[] PROGMEM = {
 int frameTime = 15; // ms
 uint16_t basePitch;
 int formantScale;
+// Randomizes between 3 different pitches 
 int funky=0;
 void loop() {
     funky=random(10)%3; 
@@ -282,14 +297,17 @@ void loop() {
     tweenFrames = pgm_read_byte(framePos++);
     switch( funky) {
       case 0:
+        // Normal Pitch
         startPitch = pitchTable[pgm_read_byte(framePos++)];
         break;
       case 1:
         framePos++;
+        // Rising cyberVIGILANT
         startPitch = pitchTable[loPitch++];
         break;
       case 2:
         framePos++;
+        // CYBERvigilant
         startPitch = pitchTable[hiPitch--];
         break;
     }
