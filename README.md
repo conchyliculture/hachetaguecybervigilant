@@ -6,6 +6,13 @@ Paper thing stolen from [http://www.ssi.gouv.fr/uploads/2016/06/ric_papertoy.pdf
 
 Original code apparently inspired from [http://www.apple-iigs.info/newdoc/sam.pdf](http://www.apple-iigs.info/newdoc/sam.pdf)
 
+## Physical hacking
+
+[](/pics/pic1)
+
+[](/pics/pic1)
+
+
 CYBERVIGILANT
 cyberVIGILANT
 CYBERvigilant
