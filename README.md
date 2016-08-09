@@ -10,9 +10,15 @@ Original code apparently inspired from [http://www.apple-iigs.info/newdoc/sam.pd
 
 ## Physical hacking
 
-[](/pics/pic1)
+![](/pics/pic1.jpg)
 
-[](/pics/pic1)
+0. Ric's Asshole
+1. Chinese copy of an arduino nano from DealExtreme
+2. Cheap speaker
+3. Related background
+
+![](/pics/pic2.jpg)
+0. Just connect like so and stuff everything inside Ric's inviting hole.
 
 
 CYBERVIGILANT
