@@ -16,7 +16,7 @@ Original code apparently inspired from [http://www.apple-iigs.info/newdoc/sam.pd
 
 0. Ric's Asshole
 1. Chinese copy of an arduino nano from DealExtreme
-2. Cheap speaker
+2. Cheap speaker. A bit too big for Rici but it kinda fits sideways. I guess he's been abused before. 
 3. Related background
 
 ![](/pics/pic2.jpg)
