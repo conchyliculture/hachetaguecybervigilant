@@ -1,6 +1,7 @@
 # # CYBERVIGILANT
 
-[VIDEO VIDEO VIDEO VIDEO](https://github.com/conchyliculture/hachetaguecybervigilant/releases/download/CYBERVIGILANT/cybervigilant.mp4)
+* [VIDEO VIDEO VIDEO VIDEO 1 "# Cybervigilant"](/vids/cybervigilant.mp4)
+* [VIDEO VIDEO VIDEO VIDEO 2 "# SailleBeur"](/vids/cyber.mp4)
 
 Plugging random things into your laptop's USB port is okay as long as you do it Cybervigilantly. Please fork the code and weaponize the crap out of this.
 
